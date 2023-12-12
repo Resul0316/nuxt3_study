@@ -8,13 +8,19 @@
         <p class="movie-overview">{{ overview }}</p>
         <div class="d-flex justify-content-end align-text-bottom">
           <span class="w-25 bg-danger text-center">{{ vote_average }}</span>
-          <button @click="singleMovie(id)">Details</button>
+          <!-- <button @click="singleMovie(id)">Details</button> -->
+          <!-- <Button type="dashed" @click="singleMovie(id)">Dashed Button</Button> -->
+          <Button></Button>
+          <a-button type="primary">Primary Button</a-button>
+
         </div>
         </div>
       </div>
 </template>
 
 <script setup>
+// import { Button } from 'antd'
+
 const props = defineProps({ 
     movies: {
         type: Array,

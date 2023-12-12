@@ -2,4 +2,15 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   // modules: ['@nuxtjs/axios']
+  modules: [
+    '@ant-design-vue/nuxt',
+    // '@nuxtjs/axios'
+  ],
+  antd:{
+    // Options
+  },
+  css: [
+    '~/css/movie.css',
+    'antd/dist/reset.css'
+  ],
 })
