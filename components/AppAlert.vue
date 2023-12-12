@@ -1,27 +1,31 @@
 <template>
-  <div class="container">
+  <div class="container movie">
     <input type="search" placeholder="Search" v-model="searchQuery"/>
     <button @click="searchWithFind">Search</button> <br />
     <button @click="sortByAsc">Ascending</button>
     <button @click="sortByDesc">Descending</button>
     <div class="mt-3 d-flex row wrap">
-      <div class="card col-3 bg-dark text-white"
+      <!-- <div class="card col-3 bg-dark text-white movie_card"
       v-for="{ title, overview, vote_average, poster_path, id, index } in movies.results"
       :key="index">
-        <img :src="baseUrl + poster_path" alt="">
+        <img class="movie-img" :src="baseUrl + poster_path" alt="">
+        <div class="movie-content">
         <h5 class="bg-warning text-center mt-3">{{ title }}</h5>
-        <p>{{ overview }}</p>
+        <p class="movie-overview">{{ overview }}</p>
         <div class="d-flex justify-content-end align-text-bottom">
           <span class="w-25 bg-danger text-center">{{ vote_average }}</span>
           <button @click="singleMovie(id)">Details</button>
         </div>
-      </div>
+        </div>
+      </div> -->
+      <listing :movies="movies.results"/>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+import listing from './listing.vue'
 
 type listingMovies = 'sortAsc' | 'sortDesc' | 'none'
 
@@ -34,6 +38,7 @@ poster_path  : string
 }
 
 export default defineComponent({
+  components: { listing },
 data() {
   const listingMovies = useState<listingMovies>('none')
   const movies = useState(<MoviesINT[]>(() => []))

@@ -3,25 +3,26 @@
         <h3 class=" m-3">{{movies.title}}</h3>
         <p>{{ movies.overview }}</p>
         <img class="col-4" :src="baseUrl + movies.poster_path" alt="">
-        <!-- <div class="mt-5">
-            <h6>Video Page:</h6>
-            <video />
-        </div> -->
+        <div class="mt-5">
+            <comments />
+        </div>
     </div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-import video from './video123.vue'
+import comments from '../pages/comments.vue';
 export default defineComponent({
     components: {
-        video
+        comments
     },
     data() {
         const { id } = useRoute().params
+        const newTodo = ref('');
         return {
             newCommentText: '',
-            id
+            id,
+            newTodo
         }
     },
     async setup () {
@@ -47,9 +48,17 @@ export default defineComponent({
         singleMovie(movie) {
             return movie
         },
-        addComment () {
-            let comArr = [];
-            let comment = ''
+        addTodo () {
+            const newTodo = ref('');
+            const todos = ref([]);
+            if (newTodo.value) {
+                todos.value.push({
+                    id: newTodo.legth + 1,
+                    content: newTodo.value
+                })
+                newTodo.value = '';
+                console.log(todos)
+            }
         }
     },
     computed: {

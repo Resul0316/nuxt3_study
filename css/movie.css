@@ -1,0 +1,16 @@
+.movie {
+  
+  .movie_card {
+    .movie-img {
+      width: -webkit-fill-available;
+      height: 20rem;
+    }
+    .movie-content {
+      height: auto;
+    }
+    .movie-overview {
+      height: 15rem;
+      overflow: scroll;
+    }
+  }
+}

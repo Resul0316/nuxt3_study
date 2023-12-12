@@ -3,6 +3,7 @@ export default {
   
     css: [
       'bootstrap/dist/css/bootstrap.css',
+      '~/css/movie.css'
     ],
   
     scripts: [
