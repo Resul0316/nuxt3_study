@@ -1,9 +1,6 @@
 <template>
   <div class="container movie">
-    <input type="search" placeholder="Search" v-model="searchQuery"/>
-    <button @click="searchWithFind">Search</button> <br />
-    <button @click="sortByAsc">Ascending</button>
-    <button @click="sortByDesc">Descending</button>
+    
     <div class="mt-3 d-flex row wrap">
       <!-- <div class="card col-3 bg-dark text-white movie_card"
       v-for="{ title, overview, vote_average, poster_path, id, index } in movies.results"
@@ -58,10 +55,7 @@ created() {
   .then((data) => {
     this.movies = this.retrieveMovies(data)
     this.movies = this.sortByDesc(data)
-    this.movies = this.sortByAsc(data)
-    this.movies = this.searchWithFind(data)
-    // this.movies = this.singleMovie(data)
-    // this.movies = this.searchMovies(data)
+
   })
 },
 methods: {
@@ -90,29 +84,6 @@ methods: {
     // console.log(movies.results, 'Desc')
     return movies
   },
-  sortByAsc() {
-    for(let i = 0; i<this.movies.results.length; i++) {
-      for(let j = 0; j<this.movies.results.length - 1 - i; j++){
-        if (this.movies.results[j].vote_average > this.movies.results[j + 1].vote_average) {
-          let swap = this.movies.results[j+1]
-          this.movies.results[j+1] = this.movies.results[j]
-          this.movies.results[j] = swap
-        }
-      }
-    }
-    // console.log(movies.results, 'Asc')
-    return this.movies
-  },
-  searchWithFind(movies: any): MoviesINT[] {
-    let raccoglitore = []
-    for (let i=0; i<movies?.results.length; i++) {
-      if(movies.results[i].includes('c')) {
-        raccoglitore.push(movies.results[i])
-      }
-    }
-    //let search = movies.results.find((el) => el.title.includes('Reign of Chaos')) || el.description.includes('Reign of Chaos')
-    return movies
-  },
   async searchMovies () {
     const movies = ref<MoviesINT[]>([]);
     const searchQuery = ref('')
@@ -125,7 +96,7 @@ methods: {
     }
   }
   },
-  singleMovie (id){
+  singleMovie (id: number){
       this.$router.push(`/posts/${id}`)
     }
 },
