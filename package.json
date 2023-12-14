@@ -1,20 +1,12 @@
 {
   "name": "nuxt-app",
   "private": true,
-  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "devDependencies": {
-    "@ant-design-vue/nuxt": "^1.2.0",
-    "@nuxt/devtools": "latest",
-    "nuxt": "^3.8.2",
-    "vue": "^3.3.8",
-    "vue-router": "^4.2.5"
+    "postinstall": "nuxt prepare",
+    "preview": "nuxt preview"
   },
   "dependencies": {
     "@nuxt/http": "^0.6.4",
@@ -28,6 +20,16 @@
     "joi": "^17.11.0",
     "mongoose": "^8.0.3",
     "pinia": "^2.1.7",
+    "register-service-worker": "^1.7.2",
     "vee-validate": "^4.5.8"
-  }
+  },
+  "devDependencies": {
+    "@ant-design-vue/nuxt": "^1.2.0",
+    "@nuxt/devtools": "latest",
+    "@vue/cli-plugin-pwa": "~5.0.0",
+    "nuxt": "^3.8.2",
+    "vue": "^3.3.8",
+    "vue-router": "^4.2.5"
+  },
+  "type": "module"
 }
