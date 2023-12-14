@@ -1,8 +1,16 @@
 <template>
     <div class="mt-5 ms-3" v-if="movies" :key="index">
         <h3 class=" m-3">{{movies.title}}</h3>
-        <p>{{ movies.overview }}</p>
-        <img class="col-4" :src="baseUrl + movies.poster_path" alt="">
+        <a-collapse>
+            <a-collapse.panel key="overview" header="Overview">
+                <p>{{ movies.overview }}</p>
+            </a-collapse.panel>
+            <a-collapse-panel key="imbd" header="IMDB">
+                <p><span>IMDB:</span>{{ movies.vote_average }}</p>
+            </a-collapse-panel>
+        </a-collapse>
+        <img width="300" class="col-4" :src="baseUrl + movies.poster_path" alt="">
+        
         <div class="mt-5">
             <comments />
         </div>
@@ -33,7 +41,6 @@ export default defineComponent({
         const response = await $fetch(url)
         const response2 = await $fetch(videoUrl)
         movies.value = response
-        console.log(response2, '2')
         return {
             movies
         }
@@ -48,18 +55,18 @@ export default defineComponent({
         singleMovie(movie) {
             return movie
         },
-        addTodo () {
-            const newTodo = ref('');
-            const todos = ref([]);
-            if (newTodo.value) {
-                todos.value.push({
-                    id: newTodo.legth + 1,
-                    content: newTodo.value
-                })
-                newTodo.value = '';
-                console.log(todos)
-            }
-        }
+        // addTodo () {
+        //     const newTodo = ref('');
+        //     const todos = ref([]);
+        //     if (newTodo.value) {
+        //         todos.value.push({
+        //             id: newTodo.legth + 1,
+        //             content: newTodo.value
+        //         })
+        //         newTodo.value = '';
+        //         console.log(todos)
+        //     }
+        // }
     },
     computed: {
         baseUrl() {

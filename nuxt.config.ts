@@ -4,7 +4,8 @@ export default defineNuxtConfig({
   // modules: ['@nuxtjs/axios']
   modules: [
     '@ant-design-vue/nuxt',
-    // '@nuxtjs/axios'
+    // '@nuxtjs/axios',
+    "@pinia/nuxt"
   ],
   antd:{
     // Options

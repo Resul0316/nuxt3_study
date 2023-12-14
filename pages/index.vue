@@ -4,21 +4,13 @@ a different route displaying its content. -->
 <template>
 <div>
     <h1 class="text-center">Cinema</h1>
-    <modalVue v-show="showModal" />
     <AppAlert />
+    <pre>{{ data }}</pre>
 </div>
 </template>
+<script setup>
 
-<script>
-// import modalVue from 'components/modal.vue'
+const { data } = await useFetch('/api/hello')
 
-export default {
-    // components: { modalVue },
-    data() {
-        return {
-            showModal: false,
-        }
-    }
-}
 
 </script>

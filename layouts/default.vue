@@ -7,13 +7,27 @@ as part of your page metadata. -->
 
 <template>
   <div>
-    <nav class="navbar navbar-light bg-dark justify-content-between">
-      <a class="navbar-brand text-white">Welcome to Cinema</a>
-      <form class="form-inline" >
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" @keyup="updateBySearch()" v-model="searchTerm" aria-label="Search">
-        <button @click="updateBySearch()">Search</button>
-      </form>
-    </nav>
+    <template>
+  <div>
+    <a-page-header
+      class="demo-page-header"
+      style="border: 1px solid rgb(235, 237, 240)"
+      title="Title"
+      sub-title="World's best cinema"
+      @back="() => $router.go(-1)"
+    >
+      <template #extra>
+        <li><NuxtLink to="/about">About</NuxtLink></li>
+        <li><NuxtLink to="/">Posts</NuxtLink></li>
+        <li><NuxtLink to="/Login">Login</NuxtLink></li>
+        <li><NuxtLink to="Register">Register</NuxtLink></li>
+      </template>
+      <a-descriptions size="small" :column="3">
+        <a-descriptions-item label="It is">Giuseppe's Cinema</a-descriptions-item>
+      </a-descriptions>
+    </a-page-header>
+  </div>
+</template>
     <slot />
   </div>
 </template>
