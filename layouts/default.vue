@@ -18,9 +18,9 @@ as part of your page metadata. -->
     >
       <template #extra>
         <li><NuxtLink to="/about">About</NuxtLink></li>
-        <li><NuxtLink to="/">Posts</NuxtLink></li>
+        <li><NuxtLink to="/">Movies</NuxtLink></li>
         <li><NuxtLink to="/Login">Login</NuxtLink></li>
-        <li><NuxtLink to="Register">Register</NuxtLink></li>
+        <li><NuxtLink to="/Register">Register</NuxtLink></li>
       </template>
       <a-descriptions size="small" :column="3">
         <a-descriptions-item label="It is">Giuseppe's Cinema</a-descriptions-item>
