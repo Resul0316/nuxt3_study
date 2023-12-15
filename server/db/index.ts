@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Nitro } from "nitropack";
+import type { Nitro } from "nitropack";
 
 export default async (_nitroApp: Nitro) => {
 	// connect to mongodb

@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
 	try {
 		await RegisterModel.create(body);
 		return { message: "user created" };
-	} catch (e) {
+	} catch (e:any) {
 		throw createError({
 			message: e.message,
 		});

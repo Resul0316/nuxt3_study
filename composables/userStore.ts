@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 import type { IRegisterUser } from "~~/types";
-// import useToast from "./useToast";
 
 export const useUserStore = defineStore("user-store", {
 	state: () => ({
@@ -15,7 +14,6 @@ export const useUserStore = defineStore("user-store", {
 				return data as IRegisterUser[];
 			} catch (err) {
 				console.log(err)
-				// useToast().error(e.message);
 			}
 		},
 		// Create a new user
@@ -26,11 +24,9 @@ export const useUserStore = defineStore("user-store", {
 			})
 				.catch((err) => {
 					console.log(err)
-					// useToast().error(e.data.message);
 				})
 				.then(async () => {
 					await this.getAll();
-					// useToast().success("user created");
 				});
 		},
 		// Update an user
@@ -39,12 +35,11 @@ export const useUserStore = defineStore("user-store", {
 				method: "PUT",
 				body: { username },
 			})
-				.catch((e) => {
-					// useToast().error(e.data.message);
+				.catch((err) => {
+					console.log(err)
 				})
 				.then(async () => {
 					await this.getAll();
-					// useToast().success("Author updated");
 				});
 		},
 		// delete an user
@@ -53,11 +48,10 @@ export const useUserStore = defineStore("user-store", {
 				method: "DELETE",
 			})
 				.catch((e) => {
-					// useToast().error(e.data.message);
+					console.log(e)
 				})
 				.then(async () => {
 					await this.getAll();
-					// useToast().success("user removed");
 				});
 		},
 	},
